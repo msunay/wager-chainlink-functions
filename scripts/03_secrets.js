@@ -6,9 +6,8 @@ const { signer } = require("../connection.js");
 const { networks } = require("../networks.js");
 
 require("@chainlink/env-enc").config();
-// require('dotenv').config()
 
-const NETWORK = "polygonMumbai";
+const NETWORK = "ethereumSepolia";
 
 const functionsRouterAddress = networks[NETWORK].functionsRouter;
 const donId = networks[NETWORK].donId;
@@ -22,12 +21,12 @@ const encryptAndUploadSecrets = async () => {
 
   await secretsManager.initialize();
 
-  if (!process.env.GPT_API_KEY) {
-    throw Error("GPT_API_KEY not found in .env.enc file");
+  if (!process.env.WEATHER_API_KEY) {
+    throw Error("WEATHER_API_KEY not found in .env.enc file");
   }
 
   const secrets = {
-    apiKey: process.env.GPT_API_KEY,
+    apiKey: process.env.WEATHER_API_KEY,
   };
 
   const encryptedSecretsObj = await secretsManager.encryptSecrets(secrets);
