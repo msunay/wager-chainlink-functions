@@ -21,9 +21,7 @@ const createAndFundSub = async () => {
   await subscriptionManager.initialize();
 
   // Create Subscription
-  const subscriptionId = await subscriptionManager.createSubscription().then(subscriptionId => {
-    
-  });
+  const subscriptionId = await subscriptionManager.createSubscription();
   console.log(`\n Subscription ${subscriptionId} created.`);
 
   // add consumer to subscription
